@@ -1,0 +1,843 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		507E23B01037ADF8335ECE59 /* Pods_HyReadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDB5FBB54DE1DB0243BB674 /* Pods_HyReadTests.framework */; };
+		81EF2B2856EC30A0AD6F1700 /* Pods_HyRead_HyReadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC410E00DABAE665305C111 /* Pods_HyRead_HyReadUITests.framework */; };
+		9DDB48D32BAB3A7F0066434D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48D22BAB3A7F0066434D /* AppDelegate.swift */; };
+		9DDB48D52BAB3A7F0066434D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48D42BAB3A7F0066434D /* SceneDelegate.swift */; };
+		9DDB48D72BAB3A7F0066434D /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48D62BAB3A7F0066434D /* BooksViewController.swift */; };
+		9DDB48DA2BAB3A7F0066434D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDB48D82BAB3A7F0066434D /* Main.storyboard */; };
+		9DDB48DC2BAB3A8D0066434D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DDB48DB2BAB3A8D0066434D /* Assets.xcassets */; };
+		9DDB48DF2BAB3A8D0066434D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDB48DD2BAB3A8D0066434D /* LaunchScreen.storyboard */; };
+		9DDB48EA2BAB3A8D0066434D /* HyReadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48E92BAB3A8D0066434D /* HyReadTests.swift */; };
+		9DDB48F42BAB3A8D0066434D /* HyReadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48F32BAB3A8D0066434D /* HyReadUITests.swift */; };
+		9DDB48F62BAB3A8D0066434D /* HyReadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48F52BAB3A8D0066434D /* HyReadUITestsLaunchTests.swift */; };
+		9DDB49032BAB3FF30066434D /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49022BAB3FF30066434D /* BookCollectionViewCell.swift */; };
+		9DDB49082BAB46D40066434D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49072BAB46D40066434D /* Book.swift */; };
+		9DDB490C2BAB49FA0066434D /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB490B2BAB49FA0066434D /* KingFisherWrapper.swift */; };
+		9DDB490F2BAB57170066434D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB490E2BAB57170066434D /* APIManager.swift */; };
+		E36236338D6AE7F666EC3614 /* Pods_HyRead.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591EA5D3AD3040F970F5790D /* Pods_HyRead.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DDB48E62BAB3A8D0066434D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDB48C72BAB3A7F0066434D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DDB48CE2BAB3A7F0066434D;
+			remoteInfo = HyRead;
+		};
+		9DDB48F02BAB3A8D0066434D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDB48C72BAB3A7F0066434D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DDB48CE2BAB3A7F0066434D;
+			remoteInfo = HyRead;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03A0999A10C3238F9E118445 /* Pods-HyRead.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyRead.debug.xcconfig"; path = "Target Support Files/Pods-HyRead/Pods-HyRead.debug.xcconfig"; sourceTree = "<group>"; };
+		0E3ECD192ABAB1EEC57F8D17 /* Pods-HyRead.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyRead.release.xcconfig"; path = "Target Support Files/Pods-HyRead/Pods-HyRead.release.xcconfig"; sourceTree = "<group>"; };
+		1557E428C89CAF5767D2B655 /* Pods-HyRead-HyReadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyRead-HyReadUITests.debug.xcconfig"; path = "Target Support Files/Pods-HyRead-HyReadUITests/Pods-HyRead-HyReadUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		591EA5D3AD3040F970F5790D /* Pods_HyRead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyRead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DA8A360506A81D314576EF8 /* Pods-HyReadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyReadTests.release.xcconfig"; path = "Target Support Files/Pods-HyReadTests/Pods-HyReadTests.release.xcconfig"; sourceTree = "<group>"; };
+		7CDB5FBB54DE1DB0243BB674 /* Pods_HyReadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyReadTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC410E00DABAE665305C111 /* Pods_HyRead_HyReadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyRead_HyReadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DDB48CF2BAB3A7F0066434D /* HyRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DDB48D22BAB3A7F0066434D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9DDB48D42BAB3A7F0066434D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9DDB48D62BAB3A7F0066434D /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
+		9DDB48D92BAB3A7F0066434D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9DDB48DB2BAB3A8D0066434D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DDB48DE2BAB3A8D0066434D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9DDB48E02BAB3A8D0066434D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DDB48E52BAB3A8D0066434D /* HyReadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyReadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DDB48E92BAB3A8D0066434D /* HyReadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyReadTests.swift; sourceTree = "<group>"; };
+		9DDB48EF2BAB3A8D0066434D /* HyReadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyReadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DDB48F32BAB3A8D0066434D /* HyReadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyReadUITests.swift; sourceTree = "<group>"; };
+		9DDB48F52BAB3A8D0066434D /* HyReadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyReadUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9DDB49022BAB3FF30066434D /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		9DDB49072BAB46D40066434D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		9DDB490B2BAB49FA0066434D /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
+		9DDB490E2BAB57170066434D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		A21F7759855D6C0F8ADC5171 /* Pods-HyReadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyReadTests.debug.xcconfig"; path = "Target Support Files/Pods-HyReadTests/Pods-HyReadTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE693DAE8BEBCE3042CA6275 /* Pods-HyRead-HyReadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyRead-HyReadUITests.release.xcconfig"; path = "Target Support Files/Pods-HyRead-HyReadUITests/Pods-HyRead-HyReadUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DDB48CC2BAB3A7F0066434D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E36236338D6AE7F666EC3614 /* Pods_HyRead.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DDB48E22BAB3A8D0066434D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				507E23B01037ADF8335ECE59 /* Pods_HyReadTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DDB48EC2BAB3A8D0066434D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81EF2B2856EC30A0AD6F1700 /* Pods_HyRead_HyReadUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C93387F5DBDCE357BD43A32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03A0999A10C3238F9E118445 /* Pods-HyRead.debug.xcconfig */,
+				0E3ECD192ABAB1EEC57F8D17 /* Pods-HyRead.release.xcconfig */,
+				1557E428C89CAF5767D2B655 /* Pods-HyRead-HyReadUITests.debug.xcconfig */,
+				AE693DAE8BEBCE3042CA6275 /* Pods-HyRead-HyReadUITests.release.xcconfig */,
+				A21F7759855D6C0F8ADC5171 /* Pods-HyReadTests.debug.xcconfig */,
+				6DA8A360506A81D314576EF8 /* Pods-HyReadTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8FEF4D4BD2CBDC68E073120D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				591EA5D3AD3040F970F5790D /* Pods_HyRead.framework */,
+				9DC410E00DABAE665305C111 /* Pods_HyRead_HyReadUITests.framework */,
+				7CDB5FBB54DE1DB0243BB674 /* Pods_HyReadTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DDB48C62BAB3A7F0066434D = {
+			isa = PBXGroup;
+			children = (
+				9DDB48D12BAB3A7F0066434D /* HyRead */,
+				9DDB48E82BAB3A8D0066434D /* HyReadTests */,
+				9DDB48F22BAB3A8D0066434D /* HyReadUITests */,
+				9DDB48D02BAB3A7F0066434D /* Products */,
+				8C93387F5DBDCE357BD43A32 /* Pods */,
+				8FEF4D4BD2CBDC68E073120D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9DDB48D02BAB3A7F0066434D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB48CF2BAB3A7F0066434D /* HyRead.app */,
+				9DDB48E52BAB3A8D0066434D /* HyReadTests.xctest */,
+				9DDB48EF2BAB3A8D0066434D /* HyReadUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DDB48D12BAB3A7F0066434D /* HyRead */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB49092BAB47D30066434D /* Wrapper */,
+				9DDB490D2BAB57050066434D /* Manager */,
+				9DDB49062BAB40160066434D /* ViewModel */,
+				9DDB49042BAB3FFA0066434D /* View */,
+				9DDB49052BAB40000066434D /* Model */,
+				9DDB48D82BAB3A7F0066434D /* Main.storyboard */,
+				9DDB48D42BAB3A7F0066434D /* SceneDelegate.swift */,
+				9DDB48D22BAB3A7F0066434D /* AppDelegate.swift */,
+				9DDB48DB2BAB3A8D0066434D /* Assets.xcassets */,
+				9DDB48DD2BAB3A8D0066434D /* LaunchScreen.storyboard */,
+				9DDB48E02BAB3A8D0066434D /* Info.plist */,
+			);
+			path = HyRead;
+			sourceTree = "<group>";
+		};
+		9DDB48E82BAB3A8D0066434D /* HyReadTests */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB48E92BAB3A8D0066434D /* HyReadTests.swift */,
+			);
+			path = HyReadTests;
+			sourceTree = "<group>";
+		};
+		9DDB48F22BAB3A8D0066434D /* HyReadUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB48F32BAB3A8D0066434D /* HyReadUITests.swift */,
+				9DDB48F52BAB3A8D0066434D /* HyReadUITestsLaunchTests.swift */,
+			);
+			path = HyReadUITests;
+			sourceTree = "<group>";
+		};
+		9DDB49042BAB3FFA0066434D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB48D62BAB3A7F0066434D /* BooksViewController.swift */,
+				9DDB49022BAB3FF30066434D /* BookCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DDB49052BAB40000066434D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB49072BAB46D40066434D /* Book.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DDB49062BAB40160066434D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9DDB49092BAB47D30066434D /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB490B2BAB49FA0066434D /* KingFisherWrapper.swift */,
+			);
+			path = Wrapper;
+			sourceTree = "<group>";
+		};
+		9DDB490D2BAB57050066434D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB490E2BAB57170066434D /* APIManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DDB48CE2BAB3A7F0066434D /* HyRead */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DDB48F92BAB3A8D0066434D /* Build configuration list for PBXNativeTarget "HyRead" */;
+			buildPhases = (
+				CB01E659C06ED0193B036B90 /* [CP] Check Pods Manifest.lock */,
+				9DDB48CB2BAB3A7F0066434D /* Sources */,
+				9DDB48CC2BAB3A7F0066434D /* Frameworks */,
+				9DDB48CD2BAB3A7F0066434D /* Resources */,
+				368C0E883FE4E77DD8B2BC0B /* [CP] Embed Pods Frameworks */,
+				9DDB490A2BAB48F90066434D /* SwiftLint Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HyRead;
+			productName = HyRead;
+			productReference = 9DDB48CF2BAB3A7F0066434D /* HyRead.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9DDB48E42BAB3A8D0066434D /* HyReadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DDB48FC2BAB3A8D0066434D /* Build configuration list for PBXNativeTarget "HyReadTests" */;
+			buildPhases = (
+				DB66F41E33EBAC263C34480F /* [CP] Check Pods Manifest.lock */,
+				9DDB48E12BAB3A8D0066434D /* Sources */,
+				9DDB48E22BAB3A8D0066434D /* Frameworks */,
+				9DDB48E32BAB3A8D0066434D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DDB48E72BAB3A8D0066434D /* PBXTargetDependency */,
+			);
+			name = HyReadTests;
+			productName = HyReadTests;
+			productReference = 9DDB48E52BAB3A8D0066434D /* HyReadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9DDB48EE2BAB3A8D0066434D /* HyReadUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DDB48FF2BAB3A8D0066434D /* Build configuration list for PBXNativeTarget "HyReadUITests" */;
+			buildPhases = (
+				3AE119B4B7518E8F741857C3 /* [CP] Check Pods Manifest.lock */,
+				9DDB48EB2BAB3A8D0066434D /* Sources */,
+				9DDB48EC2BAB3A8D0066434D /* Frameworks */,
+				9DDB48ED2BAB3A8D0066434D /* Resources */,
+				97810786352B8A9B0C33B1CD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DDB48F12BAB3A8D0066434D /* PBXTargetDependency */,
+			);
+			name = HyReadUITests;
+			productName = HyReadUITests;
+			productReference = 9DDB48EF2BAB3A8D0066434D /* HyReadUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DDB48C72BAB3A7F0066434D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					9DDB48CE2BAB3A7F0066434D = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					9DDB48E42BAB3A8D0066434D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 9DDB48CE2BAB3A7F0066434D;
+					};
+					9DDB48EE2BAB3A8D0066434D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 9DDB48CE2BAB3A7F0066434D;
+					};
+				};
+			};
+			buildConfigurationList = 9DDB48CA2BAB3A7F0066434D /* Build configuration list for PBXProject "HyRead" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DDB48C62BAB3A7F0066434D;
+			productRefGroup = 9DDB48D02BAB3A7F0066434D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DDB48CE2BAB3A7F0066434D /* HyRead */,
+				9DDB48E42BAB3A8D0066434D /* HyReadTests */,
+				9DDB48EE2BAB3A8D0066434D /* HyReadUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DDB48CD2BAB3A7F0066434D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DDB48DF2BAB3A8D0066434D /* LaunchScreen.storyboard in Resources */,
+				9DDB48DC2BAB3A8D0066434D /* Assets.xcassets in Resources */,
+				9DDB48DA2BAB3A7F0066434D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DDB48E32BAB3A8D0066434D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DDB48ED2BAB3A8D0066434D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		368C0E883FE4E77DD8B2BC0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HyRead/Pods-HyRead-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HyRead/Pods-HyRead-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HyRead/Pods-HyRead-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AE119B4B7518E8F741857C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HyRead-HyReadUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97810786352B8A9B0C33B1CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HyRead-HyReadUITests/Pods-HyRead-HyReadUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HyRead-HyReadUITests/Pods-HyRead-HyReadUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HyRead-HyReadUITests/Pods-HyRead-HyReadUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DDB490A2BAB48F90066434D /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		CB01E659C06ED0193B036B90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HyRead-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB66F41E33EBAC263C34480F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HyReadTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DDB48CB2BAB3A7F0066434D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DDB48D72BAB3A7F0066434D /* BooksViewController.swift in Sources */,
+				9DDB49032BAB3FF30066434D /* BookCollectionViewCell.swift in Sources */,
+				9DDB48D32BAB3A7F0066434D /* AppDelegate.swift in Sources */,
+				9DDB490C2BAB49FA0066434D /* KingFisherWrapper.swift in Sources */,
+				9DDB49082BAB46D40066434D /* Book.swift in Sources */,
+				9DDB48D52BAB3A7F0066434D /* SceneDelegate.swift in Sources */,
+				9DDB490F2BAB57170066434D /* APIManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DDB48E12BAB3A8D0066434D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DDB48EA2BAB3A8D0066434D /* HyReadTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DDB48EB2BAB3A8D0066434D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DDB48F42BAB3A8D0066434D /* HyReadUITests.swift in Sources */,
+				9DDB48F62BAB3A8D0066434D /* HyReadUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DDB48E72BAB3A8D0066434D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DDB48CE2BAB3A7F0066434D /* HyRead */;
+			targetProxy = 9DDB48E62BAB3A8D0066434D /* PBXContainerItemProxy */;
+		};
+		9DDB48F12BAB3A8D0066434D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DDB48CE2BAB3A7F0066434D /* HyRead */;
+			targetProxy = 9DDB48F02BAB3A8D0066434D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9DDB48D82BAB3A7F0066434D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DDB48D92BAB3A7F0066434D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9DDB48DD2BAB3A8D0066434D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DDB48DE2BAB3A8D0066434D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DDB48F72BAB3A8D0066434D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DDB48F82BAB3A8D0066434D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DDB48FA2BAB3A8D0066434D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03A0999A10C3238F9E118445 /* Pods-HyRead.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2B5AM4DDW5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HyRead/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.red.HyRead;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DDB48FB2BAB3A8D0066434D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E3ECD192ABAB1EEC57F8D17 /* Pods-HyRead.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2B5AM4DDW5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HyRead/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.red.HyRead;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9DDB48FD2BAB3A8D0066434D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A21F7759855D6C0F8ADC5171 /* Pods-HyReadTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2B5AM4DDW5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.red.HyReadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HyRead.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HyRead";
+			};
+			name = Debug;
+		};
+		9DDB48FE2BAB3A8D0066434D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DA8A360506A81D314576EF8 /* Pods-HyReadTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2B5AM4DDW5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.red.HyReadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HyRead.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HyRead";
+			};
+			name = Release;
+		};
+		9DDB49002BAB3A8D0066434D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1557E428C89CAF5767D2B655 /* Pods-HyRead-HyReadUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2B5AM4DDW5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.red.HyReadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HyRead;
+			};
+			name = Debug;
+		};
+		9DDB49012BAB3A8D0066434D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE693DAE8BEBCE3042CA6275 /* Pods-HyRead-HyReadUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2B5AM4DDW5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.red.HyReadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HyRead;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DDB48CA2BAB3A7F0066434D /* Build configuration list for PBXProject "HyRead" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DDB48F72BAB3A8D0066434D /* Debug */,
+				9DDB48F82BAB3A8D0066434D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DDB48F92BAB3A8D0066434D /* Build configuration list for PBXNativeTarget "HyRead" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DDB48FA2BAB3A8D0066434D /* Debug */,
+				9DDB48FB2BAB3A8D0066434D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DDB48FC2BAB3A8D0066434D /* Build configuration list for PBXNativeTarget "HyReadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DDB48FD2BAB3A8D0066434D /* Debug */,
+				9DDB48FE2BAB3A8D0066434D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DDB48FF2BAB3A8D0066434D /* Build configuration list for PBXNativeTarget "HyReadUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DDB49002BAB3A8D0066434D /* Debug */,
+				9DDB49012BAB3A8D0066434D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DDB48C72BAB3A7F0066434D /* Project object */;
+}

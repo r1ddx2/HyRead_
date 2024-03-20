@@ -21,5 +21,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>BookListURL</key>
+	<string>https://mservice.ebook.hyread.com.tw/exam/user-list</string>
 </dict>
 </plist>
