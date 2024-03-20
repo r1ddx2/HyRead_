@@ -11,6 +11,7 @@ class BooksViewController: UIViewController {
 
     // MARK: - Subviews
     var collectionView: UICollectionView!
+    var viewModel: BooksViewModel = BooksViewModel()
     
     // MARK: - View Load
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class BooksViewController: UIViewController {
         
         setUpCollectionView()
         setUpLayouts()
+        bindViewModel()
     }
     func setUpCollectionView() {
         setUpCollectionViewLayout()
@@ -37,6 +39,10 @@ class BooksViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    func bindViewModel() {
+        viewModel.getBooks()
+        
     }
     // MARK: - Methods
 
