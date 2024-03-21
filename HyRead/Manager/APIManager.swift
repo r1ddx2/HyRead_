@@ -23,13 +23,13 @@ extension NetworkError: LocalizedError {
         case .responseError:
             return NSLocalizedString("Response Error", comment: "")
         case .unknown:
-            return NSLocalizedString("Unknown Error", comment: "")
+            return NSLocalizedString("Unknown API Error", comment: "")
         }
     }
 }
 
 // MARK: - APIManager
-typealias FutureBookHandler = Future<[Book], Error>
+typealias BookPublisher = AnyPublisher<[Book], Error>
 
 class APIManager {
     
@@ -39,44 +39,41 @@ class APIManager {
     private let urlString = Bundle.valueForString(key: Constant.urlKey)
     private var cancellables = Set<AnyCancellable>()
     
-    func fetchData() -> FutureBookHandler {
+    func fetchData() -> BookPublisher {
         
-        // Future: A publisher that returns <Output, Error>
-        return FutureBookHandler { [weak self] promise in
-            
-            guard let self = self, let url = URL(string: urlString) else {
-                return promise(.failure(NetworkError.invalidURL))
-            }
-            
-            // publisher for URLSession data task, returns (data, URLResponse)
-            URLSession.shared.dataTaskPublisher(for: url)
-                .tryMap { (data, response) -> Data in         // Check HTTPResponse status code
-                    guard let httpResponse = response as? HTTPURLResponse,
-                            200...299 ~= httpResponse.statusCode else {
-                        throw NetworkError.responseError
-                    }
-                    return data
-                }
-                .decode(type: [Book].self, decoder: JSONDecoder())
-                .receive(on: RunLoop.main)
-                .sink { completion in      // Handle errors
-                    
-                    if case let .failure(error) = completion {
-                        switch error {
-                        case let decodingError as DecodingError:
-                            promise(.failure(decodingError))
-                        default:
-                            promise(.failure(NetworkError.unknown))
-                        }
-                    }
-                } receiveValue: { data in         // Handle success data
-                    promise(.success(data))
-                }
-                .store(in: &self.cancellables)
+        guard let url = URL(string: urlString) else {
+            return Fail(error: NetworkError.invalidURL)
+                .eraseToAnyPublisher()
         }
+        
+        // publisher for URLSession data task, returns (data, URLResponse)
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap { (data, response) -> Data in         // Check HTTPResponse status code
+                guard let httpResponse = response as? HTTPURLResponse,
+                      200...299 ~= httpResponse.statusCode else {
+                    throw NetworkError.responseError
+                }
+                return data
+            }
+            .decode(type: [Book].self, decoder: JSONDecoder())
+            .map { books -> [Book] in        // Set isFavorite default to false
+                return books.map { book in
+                    var book = book
+                    book.isFavorite = false
+                    return book
+                }
+            }
+            .mapError { error -> Error in
+                if let decodingError = error as? DecodingError {
+                    return decodingError
+                } else {
+                    return NetworkError.unknown
+                }
+            }
+            .eraseToAnyPublisher()
     }
     
-
+    
 }
 
 
