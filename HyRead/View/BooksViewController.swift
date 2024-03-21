@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 class BooksViewController: UIViewController {
-
+    
+    private var viewModel: BooksViewModel = BooksViewModel()
+    private var cancellables = Set<AnyCancellable>()
+    
     // MARK: - Subviews
     var collectionView: UICollectionView!
-    var viewModel: BooksViewModel = BooksViewModel()
     
     // MARK: - View Load
     override func viewDidLoad() {
@@ -21,7 +24,7 @@ class BooksViewController: UIViewController {
         setUpLayouts()
         bindViewModel()
     }
-    func setUpCollectionView() {
+    private func setUpCollectionView() {
         setUpCollectionViewLayout()
         
         collectionView.dataSource = self
@@ -29,7 +32,7 @@ class BooksViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.register(BookCollectionViewCell.self, forCellWithReuseIdentifier: BookCollectionViewCell.identifier)
     }
-    func setUpLayouts() {
+    private func setUpLayouts() {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -40,22 +43,32 @@ class BooksViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    func bindViewModel() {
-        viewModel.getBooks()
+    private func bindViewModel() {
+        viewModel.$bookList
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] books in
+                self?.updateUI()
+            }
+            .store(in: &cancellables)
         
+        viewModel.fetchBooks()
     }
     // MARK: - Methods
-
+    private func updateUI() {
+        collectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionView DataSource & Delegate
 extension BooksViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.bookList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionViewCell.identifier, for: indexPath) as? BookCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.layoutCell(with: viewModel.bookList[indexPath.row])
         
         return cell
         
@@ -71,9 +84,9 @@ extension BooksViewController: UICollectionViewDelegate {
 // MARK: - UICollectionView Layout
 extension BooksViewController: UICollectionViewDelegateFlowLayout {
     
-    func setUpCollectionViewLayout() {
+    private func setUpCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         layout.scrollDirection = .vertical

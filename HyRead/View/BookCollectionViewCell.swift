@@ -9,8 +9,7 @@ import UIKit
 
 class BookCollectionViewCell: UICollectionViewCell {
     static let identifier = "\(BookCollectionViewCell.self)"
-    var uuid: Int?
-    var isFavorite: Bool = false
+    var book: Book?
     
     // MARK: - Subview
     private let coverImageView: UIImageView = {
@@ -25,7 +24,9 @@ class BookCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left
+        label.numberOfLines = 2
         label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     private let favoriteButton: UIButton = {
@@ -65,9 +66,9 @@ class BookCollectionViewCell: UICollectionViewCell {
             bookTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             bookTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            favoriteButton.topAnchor.constraint(equalTo: coverImageView.topAnchor, constant: 3),
-            favoriteButton.trailingAnchor.constraint(equalTo: coverImageView.trailingAnchor, constant: -4),
-            favoriteButton.widthAnchor.constraint(equalToConstant: 35),
+            favoriteButton.topAnchor.constraint(equalTo: coverImageView.topAnchor, constant: -2),
+            favoriteButton.trailingAnchor.constraint(equalTo: coverImageView.trailingAnchor),
+            favoriteButton.widthAnchor.constraint(equalToConstant: 40),
             favoriteButton.heightAnchor.constraint(equalTo: favoriteButton.widthAnchor)
         ])
     }
@@ -76,19 +77,20 @@ class BookCollectionViewCell: UICollectionViewCell {
     }
     //MARK: - Methods
     func layoutCell(with book: Book) {
+        self.book = book
         bookTitleLabel.text = book.title
         coverImageView.loadImage(book.coverUrl)
-        isFavorite = book.isFavorite ?? false
     }
     @objc func favoriteButtonTapped() {
-        isFavorite.toggle()
+
+        book?.isFavorite?.toggle()
         updateButtonUI()
         
-        // Change data in storage
+        // publish to view model Change data in storage
         
     }
     func updateButtonUI() {
-        if isFavorite {
+        if book?.isFavorite == true {
             favoriteButton.setImage(UIImage(resource: .iconHeartFill), for: .normal)
         } else {
             favoriteButton.setImage(UIImage(resource: .iconHeartEmpty), for: .normal)

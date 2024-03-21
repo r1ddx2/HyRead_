@@ -20,7 +20,7 @@
 		9DDB48F62BAB3A8D0066434D /* HyReadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48F52BAB3A8D0066434D /* HyReadUITestsLaunchTests.swift */; };
 		9DDB49032BAB3FF30066434D /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49022BAB3FF30066434D /* BookCollectionViewCell.swift */; };
 		9DDB49082BAB46D40066434D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49072BAB46D40066434D /* Book.swift */; };
-		9DDB490C2BAB49FA0066434D /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB490B2BAB49FA0066434D /* KingFisherWrapper.swift */; };
+		9DDB490C2BAB49FA0066434D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB490B2BAB49FA0066434D /* UIImageView+Extension.swift */; };
 		9DDB490F2BAB57170066434D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB490E2BAB57170066434D /* APIManager.swift */; };
 		9DDB49112BAB5BC40066434D /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49102BAB5BC40066434D /* BooksViewModel.swift */; };
 		9DDB49132BAB5CA80066434D /* BooksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49122BAB5CA80066434D /* BooksManager.swift */; };
@@ -69,7 +69,7 @@
 		9DDB48F52BAB3A8D0066434D /* HyReadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyReadUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9DDB49022BAB3FF30066434D /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DDB49072BAB46D40066434D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		9DDB490B2BAB49FA0066434D /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
+		9DDB490B2BAB49FA0066434D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		9DDB490E2BAB57170066434D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		9DDB49102BAB5BC40066434D /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		9DDB49122BAB5CA80066434D /* BooksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksManager.swift; sourceTree = "<group>"; };
@@ -157,7 +157,6 @@
 			children = (
 				9DDB49152BAB627F0066434D /* Extension */,
 				9DDB49142BAB624F0066434D /* Resource */,
-				9DDB49092BAB47D30066434D /* Wrapper */,
 				9DDB490D2BAB57050066434D /* Manager */,
 				9DDB49062BAB40160066434D /* ViewModel */,
 				9DDB49042BAB3FFA0066434D /* View */,
@@ -214,14 +213,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		9DDB49092BAB47D30066434D /* Wrapper */ = {
-			isa = PBXGroup;
-			children = (
-				9DDB490B2BAB49FA0066434D /* KingFisherWrapper.swift */,
-			);
-			path = Wrapper;
-			sourceTree = "<group>";
-		};
 		9DDB490D2BAB57050066434D /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				9DDB49162BAB628D0066434D /* Bundle+Extension.swift */,
+				9DDB490B2BAB49FA0066434D /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -511,7 +503,7 @@
 				9DDB49112BAB5BC40066434D /* BooksViewModel.swift in Sources */,
 				9DDB49032BAB3FF30066434D /* BookCollectionViewCell.swift in Sources */,
 				9DDB48D32BAB3A7F0066434D /* AppDelegate.swift in Sources */,
-				9DDB490C2BAB49FA0066434D /* KingFisherWrapper.swift in Sources */,
+				9DDB490C2BAB49FA0066434D /* UIImageView+Extension.swift in Sources */,
 				9DDB49082BAB46D40066434D /* Book.swift in Sources */,
 				9DDB49192BAB62B60066434D /* Constant.swift in Sources */,
 				9DDB48D52BAB3A7F0066434D /* SceneDelegate.swift in Sources */,
