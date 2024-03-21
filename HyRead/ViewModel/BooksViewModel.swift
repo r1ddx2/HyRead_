@@ -8,27 +8,24 @@
 import UIKit
 import Combine
 
-class BooksViewModel {
-   
-    var bookList = [Book]()
-    
+class BooksViewModel: ObservableObject {
+    private let bookManager = BooksManager()
     private var cancellables = Set<AnyCancellable>()
+    @Published private(set) var bookList = [Book]()
     
-    func getBooks() {
+    func fetchBooks() {
         
-        APIManager.shared.fetchData()
-            .sink { completion in
-                // Failure
-                if case .failure(let err) = completion {
-                    print(err.localizedDescription)
+        bookManager.fetchBooks()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in       // Handle error
+                if case let .failure(error) = completion {
+                    print("🔴Failed to fetch books: \(error.localizedDescription)")
                 }
-                // Success
-            } receiveValue: { [weak self] data in
-                print(data)
-                self?.bookList = data
+            } receiveValue: { [weak self] books in      // Handle success
+                self?.bookList = books
+                print("🟢Received books")
             }
             .store(in: &cancellables)
-        
     }
     
     
