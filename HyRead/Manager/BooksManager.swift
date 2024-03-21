@@ -9,8 +9,8 @@ import UIKit
 
 class BooksManager {
     
-    
-    
-    
-    
+    func fetchBooks() -> BookPublisher {
+        return APIManager.shared.fetchData()
+            .eraseToAnyPublisher()
+    }
 }
