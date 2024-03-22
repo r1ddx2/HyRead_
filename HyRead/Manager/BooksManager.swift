@@ -9,8 +9,10 @@ import Combine
 import UIKit
 
 class BooksManager {
-    private var cancellables = Set<AnyCancellable>()
+    static let shared = BooksManager()
+    private init() {}
 
+    private var cancellables = Set<AnyCancellable>()
     private let apiManager = APIManager.shared
     private let storageManager = StorageManager.shared
 
@@ -38,10 +40,11 @@ class BooksManager {
     // Update favorite
     func updateFavorite(uuid: Int) {
         storageManager.updateFavorite(for: uuid)
+        loadBooks()
     }
 
     // Pass on to viewModel
-    func bookUpdates() -> BookNeverPublisher {
+    func allBookUpdates() -> BookNeverPublisher {
         storageManager.$bookList
             .eraseToAnyPublisher()
     }
