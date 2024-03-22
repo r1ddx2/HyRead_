@@ -35,10 +35,11 @@ class StorageManager {
         do {
             // Fetch data
             let bookEntities = try context.fetch(fetchRequest)
+
             // Decryption
             bookEntities.forEach { $0.convertEntity(with: key, do: .decrypt) }
 
-            // Notify subscribers
+            // Store BookList and Notify subscribers
             bookList = bookEntities.compactMap { $0.mapToBook() }
 
             // Encryption
@@ -49,7 +50,6 @@ class StorageManager {
     }
 
     /// After fetching API, update or add new book
-
     func updateData(book: Book) {
         guard let key = key else {
             print("🔴Fail to retrieve encryption key")

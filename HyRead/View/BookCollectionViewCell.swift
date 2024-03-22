@@ -21,7 +21,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     // MARK: - Subview
     private let coverImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .black
+        imageView.backgroundColor = .white
         imageView.layer.cornerRadius = 5
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill

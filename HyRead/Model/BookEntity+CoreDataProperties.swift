@@ -7,8 +7,11 @@
 //
 
 import CoreData
+import Combine
 import CryptoKit
 import Foundation
+
+typealias BookEntityPublisher = AnyPublisher<[BookEntity], Error>
 
 public extension BookEntity {
     @nonobjc class func fetchRequest() -> NSFetchRequest<BookEntity> {
