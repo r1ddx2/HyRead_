@@ -9,15 +9,13 @@ import Combine
 import UIKit
 
 class BooksViewController: UIViewController {
-    private var viewModel: BooksViewModel!
+    private let viewModel = BooksViewModel()
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Subviews
-
-    var collectionView: UICollectionView!
+    var collectionView: BookCollectionView!
 
     // MARK: - View Load
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBar()
@@ -26,27 +24,29 @@ class BooksViewController: UIViewController {
         bindViewModel()
     }
     private func setUpNavigationBar() {
-        let rightButton = UIBarButtonItem(
-            image: UIImage(systemName: Constant.refreshIcon),
-            style: .plain,
+        let rightButton = UIBarButtonItem.buildButton(
+            icon: Constant.refreshIcon,
             target: self,
-            action: #selector(rightButtonTapped)
+            action: #selector(refreshButtonTapped),
+            color: .black
         )
-        rightButton.tintColor = .black
+        let leftButton = UIBarButtonItem.buildButton(
+            icon: Constant.favoriteIcon,
+            target: self,
+            action: #selector(favBooksButtonTapped),
+            color: .black
+        )
         navigationItem.rightBarButtonItem = rightButton
+        navigationItem.leftBarButtonItem = leftButton
     }
     private func setUpCollectionView() {
-        setUpCollectionViewLayout()
-
+        collectionView = BookCollectionView(
+            frame: .zero,
+            layout: UICollectionViewFlowLayout()
+        )
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .white
-        collectionView.register(
-            BookCollectionViewCell.self,
-            forCellWithReuseIdentifier: BookCollectionViewCell.identifier
-        )
     }
-
     private func setUpLayouts() {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,13 +55,10 @@ class BooksViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
     private func bindViewModel() {
-        viewModel = BooksViewModel(bookManager: BooksManager())
-
         viewModel.$bookList
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
@@ -76,14 +73,20 @@ class BooksViewController: UIViewController {
     private func updateUI() {
         collectionView.reloadData()
     }
-    @objc private func rightButtonTapped() {
+    @objc private func refreshButtonTapped() {
         viewModel.fetchBooks()
+    }
+    @objc private func favBooksButtonTapped() {
+        let favVC = FavoritesViewController()
+        let favBookList = viewModel.bookList.filter { $0.isFavorite == true }
+        favVC.viewModel.favBookList = favBookList
+        push(favVC)
     }
 }
 
 // MARK: - UICollectionView DataSource & Delegate
 
-extension BooksViewController: UICollectionViewDataSource {
+extension BooksViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         viewModel.bookList.count
     }
@@ -100,41 +103,26 @@ extension BooksViewController: UICollectionViewDataSource {
 
         cell.layoutCell(with: viewModel.bookList[indexPath.row])
         // Subscribe to cell button
-        cell.buttonTappedPublisher
+        cell.eventPublisher
             .sink { [weak self] uuid in
                 self?.viewModel.updateFavorite(for: uuid)
+                print("UUID: \(uuid)")
             }
             .store(in: &cell.cancellables)
+            // store in vc cancellables will cause memory leak
+
 
         return cell
     }
 }
 
-// MARK: - UICollectionView Layout
-
+// MARK: - UICollectionView FlowLayout
 extension BooksViewController: UICollectionViewDelegateFlowLayout {
-    private func setUpCollectionViewLayout() {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 10
-        layout.scrollDirection = .vertical
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    }
-
     func collectionView(
         _ collectionView: UICollectionView,
         layout _: UICollectionViewLayout,
         sizeForItemAt _: IndexPath
     ) -> CGSize {
-        let itemsPerRow: CGFloat = 3
-
-        let padding: CGFloat = 20 * 2
-        let minimumItemSpacing: CGFloat = 10 * (itemsPerRow - 1)
-        let availableWidth = collectionView.frame.width - padding - minimumItemSpacing
-        let widthPerItem = availableWidth / itemsPerRow
-        let heightPerItem = widthPerItem * 2
-
-        return CGSize(width: widthPerItem, height: heightPerItem)
+        collectionView.calculateItemsPerRow(3)
     }
 }
