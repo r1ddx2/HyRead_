@@ -5,35 +5,33 @@
 //  Created by Red Wang on 2024/3/21.
 //
 
-import UIKit
 import Combine
-
+import UIKit
 
 typealias BookPublisher = AnyPublisher<[Book], Error>
 typealias BookNeverPublisher = AnyPublisher<[Book], Never>
 
 class BooksViewModel {
-    
     private let bookManager: BooksManager!
     private var cancellables = Set<AnyCancellable>()
-    
-    @Published private(set) var bookList = [Book]()
-    
+
+    @Published private(set) var bookList: [Book] = .init()
+
     init(bookManager: BooksManager) {
         self.bookManager = bookManager
         bindBookUpdates()
     }
-    
+
     // MARK: - Methods
+
     func bindBookUpdates() {
         bookManager.bookUpdates()
             .receive(on: DispatchQueue.main)
             .assign(to: \.bookList, on: self)
             .store(in: &cancellables)
     }
-    
+
     func fetchBooks() {
-        
         bookManager.fetchBooks()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] result in
@@ -50,7 +48,7 @@ class BooksViewModel {
             }
             .store(in: &cancellables)
     }
-   
+
     func updateFavorite(for uuid: Int) {
         bookManager.updateFavorite(uuid: uuid)
     }

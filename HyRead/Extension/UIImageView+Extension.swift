@@ -1,10 +1,9 @@
 //
-//  KingFisherWrapper.swift
+//  UIImageView+Extension.swift
 //  HyRead
 //
 //  Created by Red Wang on 2024/3/21.
 //
-
 
 import Kingfisher
 import UIKit

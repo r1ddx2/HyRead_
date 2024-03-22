@@ -5,9 +5,8 @@
 //  Created by Red Wang on 2024/3/21.
 //
 
-import Foundation
 import Combine
-
+import Foundation
 
 struct Book: Codable {
     let uuid: Int

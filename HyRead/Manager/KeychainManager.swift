@@ -5,12 +5,12 @@
 //  Created by Red Wang on 2024/3/22.
 //
 
+import CryptoKit
 import Foundation
 import Security
-import CryptoKit
 
-class KeychainManager {
-    static private let keyName = Bundle.valueForString(key: Constant.keychainName)
+enum KeychainManager {
+    private static let keyName = Bundle.valueForString(key: Constant.keychainName)
 
     static var cryptoKey: SymmetricKey? {
         // Check for existing key
@@ -28,27 +28,33 @@ class KeychainManager {
             }
         }
     }
+
     // MARK: - Methods
+
     static func saveToKeychain(key: SymmetricKey, keyName: String) -> OSStatus {
         let tag = keyName.data(using: .utf8)!
         let keyData = key.withUnsafeBytes {
             Data(Array($0))
         }
-        let query: [String: Any] = [kSecClass as String: kSecClassKey,
-                                       kSecAttrApplicationTag as String: tag,
-                                       kSecValueData as String: keyData,
-                                       kSecAttrKeyClass as String: kSecAttrKeyClassSymmetric,
-                                       kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlocked]
-  
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: tag,
+            kSecValueData as String: keyData,
+            kSecAttrKeyClass as String: kSecAttrKeyClassSymmetric,
+            kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlocked
+        ]
+
         return SecItemAdd(query as CFDictionary, nil)
     }
 
     static func getKey(keyName: String) -> SymmetricKey? {
         let tag = keyName.data(using: .utf8)!
-        let getquery: [String: Any] = [kSecClass as String: kSecClassKey,
-                                       kSecAttrApplicationTag as String: tag,
-                                       kSecReturnData as String: true,
-                                       kSecAttrKeyClass as String: kSecAttrKeyClassSymmetric]
+        let getquery: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: tag,
+            kSecReturnData as String: true,
+            kSecAttrKeyClass as String: kSecAttrKeyClassSymmetric
+        ]
         var item: CFTypeRef?
         let status = SecItemCopyMatching(getquery as CFDictionary, &item)
         guard status == noErr, let keyData = item as? Data else { return nil }

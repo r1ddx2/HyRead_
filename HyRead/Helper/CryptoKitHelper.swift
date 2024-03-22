@@ -5,8 +5,8 @@
 //  Created by Red Wang on 2024/3/21.
 //
 
-import Foundation
 import CryptoKit
+import Foundation
 
 protocol CryptoOperationProtocol {
     func encrypt(_ text: String, using key: SymmetricKey) -> String?
@@ -14,7 +14,6 @@ protocol CryptoOperationProtocol {
 }
 
 class CryptoKitHelper: CryptoOperationProtocol {
-    
     static let shared = CryptoKitHelper()
     private init() {}
 
@@ -27,14 +26,14 @@ class CryptoKitHelper: CryptoOperationProtocol {
         // Return the sealed box as a base64 encoded string
         return sealedBox?.combined?.base64EncodedString()
     }
-    
+
     func decrypt(_ encryptedText: String, using key: SymmetricKey) -> String? {
         guard let data = Data(base64Encoded: encryptedText),
               let sealedBox = try? AES.GCM.SealedBox(combined: data),
               let decryptedData = try? AES.GCM.open(sealedBox, using: key),
-              let decryptedString = String(data: decryptedData, encoding: .utf8) else { return nil
+              let decryptedString = String(data: decryptedData, encoding: .utf8)
+        else { return nil
         }
         return decryptedString
     }
-    
 }

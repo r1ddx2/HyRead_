@@ -6,40 +6,39 @@
 //
 //
 
-import Foundation
 import CoreData
 import CryptoKit
+import Foundation
 
-extension BookEntity {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<BookEntity> {
-        return NSFetchRequest<BookEntity>(entityName: "BookEntity")
+public extension BookEntity {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<BookEntity> {
+        NSFetchRequest<BookEntity>(entityName: "BookEntity")
     }
 
-    @NSManaged public var uuid: Int64
-    @NSManaged public var title: String?
-    @NSManaged public var publisher: String?
-    @NSManaged public var publishDate: String?
-    @NSManaged public var coverUrl: String?
-    @NSManaged public var author: String?
-    @NSManaged public var isFavorite: Bool
-   
+    @NSManaged var uuid: Int64
+    @NSManaged var title: String?
+    @NSManaged var publisher: String?
+    @NSManaged var publishDate: String?
+    @NSManaged var coverUrl: String?
+    @NSManaged var author: String?
+    @NSManaged var isFavorite: Bool
 }
 
-extension BookEntity : Identifiable {
+extension BookEntity: Identifiable {
     /// Encrypt or Decrypt Entity
     func convertEntity(
         with key: SymmetricKey,
         do action: CryptographyAction
     ) {
-        guard let newTitle = action.perform(title ?? "" , using: key),
-              let newCoverUrl = action.perform(coverUrl ?? "" , using: key),
-              let newPublishDate = action.perform(publishDate ?? "" , using: key),
-              let newPublisher = action.perform(publisher ?? "" , using: key),
-              let newAuthor = action.perform(author ?? "" , using: key) else {
+        guard let newTitle = action.perform(title ?? "", using: key),
+              let newCoverUrl = action.perform(coverUrl ?? "", using: key),
+              let newPublishDate = action.perform(publishDate ?? "", using: key),
+              let newPublisher = action.perform(publisher ?? "", using: key),
+              let newAuthor = action.perform(author ?? "", using: key)
+        else {
             print("🔴Fail to \(action.rawValue) data")
-        
-           return
+
+            return
         }
         print("🟢Success to \(action.rawValue) data")
 
@@ -51,10 +50,9 @@ extension BookEntity : Identifiable {
         author = newAuthor
         isFavorite = isFavorite
     }
-    
+
     //  Map Book to BookEntity
-    func mapToEntity(_ book: Book){
-        
+    func mapToEntity(_ book: Book) {
         uuid = Int64(book.uuid)
         title = book.title
         coverUrl = book.coverUrl
@@ -62,22 +60,18 @@ extension BookEntity : Identifiable {
         publisher = book.publisher
         author = book.author
         isFavorite = book.isFavorite ?? false
-        
     }
-    
-    
-     //  Map BookEntity to Book
-     func mapToBook() -> Book? {
-         
-             return Book(
-                 uuid: Int(uuid),
-                 title: title ?? "",
-                 coverUrl: coverUrl ?? "",
-                 publishDate: publishDate ?? "",
-                 publisher: publisher ?? "",
-                 author: author ?? "",
-                 isFavorite: isFavorite
-             )
-        
-     }
+
+    //  Map BookEntity to Book
+    func mapToBook() -> Book? {
+        Book(
+            uuid: Int(uuid),
+            title: title ?? "",
+            coverUrl: coverUrl ?? "",
+            publishDate: publishDate ?? "",
+            publisher: publisher ?? "",
+            author: author ?? "",
+            isFavorite: isFavorite
+        )
+    }
 }

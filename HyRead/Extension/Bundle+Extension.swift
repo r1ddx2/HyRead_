@@ -9,6 +9,6 @@ import Foundation
 
 extension Bundle {
     static func valueForString(key: String) -> String {
-        return Bundle.main.infoDictionary![key] as! String
+        Bundle.main.infoDictionary![key] as! String
     }
 }

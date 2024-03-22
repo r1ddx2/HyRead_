@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Constant {
+enum Constant {
     static let urlKey = "BookListURL"
     static let keychainName = "KeychainName"
 }

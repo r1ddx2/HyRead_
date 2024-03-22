@@ -80,36 +80,36 @@ public class Delegate<Input, Output> {
     }
 
     public func call(_ input: Input) -> Output? {
-        return block?(input)
+        block?(input)
     }
 
     public func callAsFunction(_ input: Input) -> Output? {
-        return call(input)
+        call(input)
     }
 }
 
-extension Delegate where Input == Void {
-    public func call() -> Output? {
-        return call(())
+public extension Delegate where Input == Void {
+    func call() -> Output? {
+        call(())
     }
 
-    public func callAsFunction() -> Output? {
-        return call()
-    }
-}
-
-extension Delegate where Input == Void, Output: OptionalProtocol {
-    public func call() -> Output {
-        return call(())
-    }
-
-    public func callAsFunction() -> Output {
-        return call()
+    func callAsFunction() -> Output? {
+        call()
     }
 }
 
-extension Delegate where Output: OptionalProtocol {
-    public func call(_ input: Input) -> Output {
+public extension Delegate where Input == Void, Output: OptionalProtocol {
+    func call() -> Output {
+        call(())
+    }
+
+    func callAsFunction() -> Output {
+        call()
+    }
+}
+
+public extension Delegate where Output: OptionalProtocol {
+    func call(_ input: Input) -> Output {
         if let result = block?(input) {
             return result
         } else {
@@ -117,16 +117,17 @@ extension Delegate where Output: OptionalProtocol {
         }
     }
 
-    public func callAsFunction(_ input: Input) -> Output {
-        return call(input)
+    func callAsFunction(_ input: Input) -> Output {
+        call(input)
     }
 }
 
 public protocol OptionalProtocol {
     static var _createNil: Self { get }
 }
-extension Optional : OptionalProtocol {
-    public static var _createNil: Optional<Wrapped> {
-         return nil
+
+extension Optional: OptionalProtocol {
+    public static var _createNil: Wrapped? {
+        nil
     }
 }
