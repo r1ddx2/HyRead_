@@ -27,6 +27,12 @@
 		9DDB49172BAB628D0066434D /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49162BAB628D0066434D /* Bundle+Extension.swift */; };
 		9DDB49192BAB62B60066434D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49182BAB62B60066434D /* Constant.swift */; };
 		9DDB491C2BABBADF0066434D /* HyRead.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB491A2BABBADF0066434D /* HyRead.xcdatamodeld */; };
+		9DDB491F2BABBC120066434D /* BookEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB491D2BABBC110066434D /* BookEntity+CoreDataClass.swift */; };
+		9DDB49202BABBC120066434D /* BookEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB491E2BABBC110066434D /* BookEntity+CoreDataProperties.swift */; };
+		9DDB49222BABBD800066434D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49212BABBD800066434D /* StorageManager.swift */; };
+		9DDB49252BAC8EFB0066434D /* CryptoKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49242BAC8EFB0066434D /* CryptoKitHelper.swift */; };
+		9DDB49292BACE4E70066434D /* CryptographyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB49282BACE4E70066434D /* CryptographyAction.swift */; };
+		9DDB492B2BAD25F90066434D /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB492A2BAD25F90066434D /* KeychainManager.swift */; };
 		E36236338D6AE7F666EC3614 /* Pods_HyRead.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591EA5D3AD3040F970F5790D /* Pods_HyRead.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +83,12 @@
 		9DDB49162BAB628D0066434D /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		9DDB49182BAB62B60066434D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9DDB491B2BABBADF0066434D /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		9DDB491D2BABBC110066434D /* BookEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9DDB491E2BABBC110066434D /* BookEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9DDB49212BABBD800066434D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		9DDB49242BAC8EFB0066434D /* CryptoKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitHelper.swift; sourceTree = "<group>"; };
+		9DDB49282BACE4E70066434D /* CryptographyAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptographyAction.swift; sourceTree = "<group>"; };
+		9DDB492A2BAD25F90066434D /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		A21F7759855D6C0F8ADC5171 /* Pods-HyReadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyReadTests.debug.xcconfig"; path = "Target Support Files/Pods-HyReadTests/Pods-HyReadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE693DAE8BEBCE3042CA6275 /* Pods-HyRead-HyReadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyRead-HyReadUITests.release.xcconfig"; path = "Target Support Files/Pods-HyRead-HyReadUITests/Pods-HyRead-HyReadUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +169,7 @@
 		9DDB48D12BAB3A7F0066434D /* HyRead */ = {
 			isa = PBXGroup;
 			children = (
+				9DDB49232BAC8EEB0066434D /* Helper */,
 				9DDB49152BAB627F0066434D /* Extension */,
 				9DDB49142BAB624F0066434D /* Resource */,
 				9DDB490D2BAB57050066434D /* Manager */,
@@ -202,8 +215,10 @@
 		9DDB49052BAB40000066434D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9DDB491A2BABBADF0066434D /* HyRead.xcdatamodeld */,
 				9DDB49072BAB46D40066434D /* Book.swift */,
+				9DDB491D2BABBC110066434D /* BookEntity+CoreDataClass.swift */,
+				9DDB491E2BABBC110066434D /* BookEntity+CoreDataProperties.swift */,
+				9DDB491A2BABBADF0066434D /* HyRead.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +236,8 @@
 			children = (
 				9DDB490E2BAB57170066434D /* APIManager.swift */,
 				9DDB49122BAB5CA80066434D /* BooksManager.swift */,
+				9DDB49212BABBD800066434D /* StorageManager.swift */,
+				9DDB492A2BAD25F90066434D /* KeychainManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -240,6 +257,15 @@
 				9DDB490B2BAB49FA0066434D /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9DDB49232BAC8EEB0066434D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB49242BAC8EFB0066434D /* CryptoKitHelper.swift */,
+				9DDB49282BACE4E70066434D /* CryptographyAction.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DDB48D72BAB3A7F0066434D /* BooksViewController.swift in Sources */,
+				9DDB49202BABBC120066434D /* BookEntity+CoreDataProperties.swift in Sources */,
 				9DDB49172BAB628D0066434D /* Bundle+Extension.swift in Sources */,
 				9DDB49132BAB5CA80066434D /* BooksManager.swift in Sources */,
 				9DDB49112BAB5BC40066434D /* BooksViewModel.swift in Sources */,
@@ -508,8 +535,13 @@
 				9DDB48D32BAB3A7F0066434D /* AppDelegate.swift in Sources */,
 				9DDB490C2BAB49FA0066434D /* UIImageView+Extension.swift in Sources */,
 				9DDB49082BAB46D40066434D /* Book.swift in Sources */,
+				9DDB49252BAC8EFB0066434D /* CryptoKitHelper.swift in Sources */,
 				9DDB491C2BABBADF0066434D /* HyRead.xcdatamodeld in Sources */,
+				9DDB491F2BABBC120066434D /* BookEntity+CoreDataClass.swift in Sources */,
+				9DDB49292BACE4E70066434D /* CryptographyAction.swift in Sources */,
+				9DDB492B2BAD25F90066434D /* KeychainManager.swift in Sources */,
 				9DDB49192BAB62B60066434D /* Constant.swift in Sources */,
+				9DDB49222BABBD800066434D /* StorageManager.swift in Sources */,
 				9DDB48D52BAB3A7F0066434D /* SceneDelegate.swift in Sources */,
 				9DDB490F2BAB57170066434D /* APIManager.swift in Sources */,
 			);

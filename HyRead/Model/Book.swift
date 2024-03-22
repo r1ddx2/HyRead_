@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+
 
 struct Book: Codable {
     let uuid: Int
