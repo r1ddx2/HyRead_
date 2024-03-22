@@ -26,6 +26,7 @@ HyRead, access your book collection both online and offline, while marking your 
 
 - View user's book list online or offline
 - Mark books as your favorite and view in your collection
+- Refresh page to access online updates
 
 <br />
 
