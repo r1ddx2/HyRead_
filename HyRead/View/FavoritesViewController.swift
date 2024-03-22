@@ -32,7 +32,6 @@ class FavoritesViewController: UIViewController {
             frame: .zero,
             layout: UICollectionViewFlowLayout()
         )
-        
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -59,14 +58,12 @@ class FavoritesViewController: UIViewController {
     private func updateUI() {
         collectionView.reloadData()
     }
-
 }
 // MARK: - UICollectionView DataSource
 extension FavoritesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.favBookList.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: BookCollectionViewCell.identifier,
@@ -74,18 +71,17 @@ extension FavoritesViewController: UICollectionViewDataSource, UICollectionViewD
             return UICollectionViewCell()
         }
         cell.layoutCell(with: viewModel.favBookList[indexPath.row])
-        
+
         // Subscribe to cell button
         cell.eventPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] uuid in
-                
                 self?.viewModel.updateFavorite(for: uuid)
                 print("UUID: \(uuid)")
             }
             .store(in: &cell.cancellables)
         // store in vc cancellables will cause memory leak
-        
+
         return cell
     }
 }

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		507E23B01037ADF8335ECE59 /* Pods_HyReadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDB5FBB54DE1DB0243BB674 /* Pods_HyReadTests.framework */; };
 		81EF2B2856EC30A0AD6F1700 /* Pods_HyRead_HyReadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC410E00DABAE665305C111 /* Pods_HyRead_HyReadUITests.framework */; };
+		9D4095552BADBB9700A3C9B2 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4095542BADBB9700A3C9B2 /* FavoritesViewController.swift */; };
+		9D4095582BADBC2F00A3C9B2 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4095572BADBC2F00A3C9B2 /* FavoritesViewModel.swift */; };
+		9D40955C2BADC02A00A3C9B2 /* BookCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40955B2BADC02A00A3C9B2 /* BookCollectionView.swift */; };
+		9D40955E2BADDD2A00A3C9B2 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40955D2BADDD2A00A3C9B2 /* UIBarButtonItem+Extension.swift */; };
+		9D4095602BADDDB700A3C9B2 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40955F2BADDDB700A3C9B2 /* UICollectionView+Extension.swift */; };
+		9D4095622BADE13A00A3C9B2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4095612BADE13A00A3C9B2 /* UIViewController+Extension.swift */; };
 		9DDB48D32BAB3A7F0066434D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48D22BAB3A7F0066434D /* AppDelegate.swift */; };
 		9DDB48D52BAB3A7F0066434D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48D42BAB3A7F0066434D /* SceneDelegate.swift */; };
 		9DDB48D72BAB3A7F0066434D /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB48D62BAB3A7F0066434D /* BooksViewController.swift */; };
@@ -60,6 +66,12 @@
 		591EA5D3AD3040F970F5790D /* Pods_HyRead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyRead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA8A360506A81D314576EF8 /* Pods-HyReadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyReadTests.release.xcconfig"; path = "Target Support Files/Pods-HyReadTests/Pods-HyReadTests.release.xcconfig"; sourceTree = "<group>"; };
 		7CDB5FBB54DE1DB0243BB674 /* Pods_HyReadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyReadTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D4095542BADBB9700A3C9B2 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		9D4095572BADBC2F00A3C9B2 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		9D40955B2BADC02A00A3C9B2 /* BookCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionView.swift; sourceTree = "<group>"; };
+		9D40955D2BADDD2A00A3C9B2 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		9D40955F2BADDDB700A3C9B2 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		9D4095612BADE13A00A3C9B2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9DC410E00DABAE665305C111 /* Pods_HyRead_HyReadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyRead_HyReadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DDB48CF2BAB3A7F0066434D /* HyRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DDB48D22BAB3A7F0066434D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				9DDB48D62BAB3A7F0066434D /* BooksViewController.swift */,
+				9D4095542BADBB9700A3C9B2 /* FavoritesViewController.swift */,
+				9D40955B2BADC02A00A3C9B2 /* BookCollectionView.swift */,
 				9DDB49022BAB3FF30066434D /* BookCollectionViewCell.swift */,
 			);
 			path = View;
@@ -227,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				9DDB49102BAB5BC40066434D /* BooksViewModel.swift */,
+				9D4095572BADBC2F00A3C9B2 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -255,6 +270,9 @@
 			children = (
 				9DDB49162BAB628D0066434D /* Bundle+Extension.swift */,
 				9DDB490B2BAB49FA0066434D /* UIImageView+Extension.swift */,
+				9D40955D2BADDD2A00A3C9B2 /* UIBarButtonItem+Extension.swift */,
+				9D40955F2BADDDB700A3C9B2 /* UICollectionView+Extension.swift */,
+				9D4095612BADE13A00A3C9B2 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -526,6 +544,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4095622BADE13A00A3C9B2 /* UIViewController+Extension.swift in Sources */,
+				9D4095602BADDDB700A3C9B2 /* UICollectionView+Extension.swift in Sources */,
 				9DDB48D72BAB3A7F0066434D /* BooksViewController.swift in Sources */,
 				9DDB49202BABBC120066434D /* BookEntity+CoreDataProperties.swift in Sources */,
 				9DDB49172BAB628D0066434D /* Bundle+Extension.swift in Sources */,
@@ -534,16 +554,20 @@
 				9DDB49032BAB3FF30066434D /* BookCollectionViewCell.swift in Sources */,
 				9DDB48D32BAB3A7F0066434D /* AppDelegate.swift in Sources */,
 				9DDB490C2BAB49FA0066434D /* UIImageView+Extension.swift in Sources */,
+				9D40955E2BADDD2A00A3C9B2 /* UIBarButtonItem+Extension.swift in Sources */,
 				9DDB49082BAB46D40066434D /* Book.swift in Sources */,
 				9DDB49252BAC8EFB0066434D /* CryptoKitHelper.swift in Sources */,
+				9D4095582BADBC2F00A3C9B2 /* FavoritesViewModel.swift in Sources */,
 				9DDB491C2BABBADF0066434D /* HyRead.xcdatamodeld in Sources */,
 				9DDB491F2BABBC120066434D /* BookEntity+CoreDataClass.swift in Sources */,
 				9DDB49292BACE4E70066434D /* CryptographyAction.swift in Sources */,
 				9DDB492B2BAD25F90066434D /* KeychainManager.swift in Sources */,
+				9D4095552BADBB9700A3C9B2 /* FavoritesViewController.swift in Sources */,
 				9DDB49192BAB62B60066434D /* Constant.swift in Sources */,
 				9DDB49222BABBD800066434D /* StorageManager.swift in Sources */,
 				9DDB48D52BAB3A7F0066434D /* SceneDelegate.swift in Sources */,
 				9DDB490F2BAB57170066434D /* APIManager.swift in Sources */,
+				9D40955C2BADC02A00A3C9B2 /* BookCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

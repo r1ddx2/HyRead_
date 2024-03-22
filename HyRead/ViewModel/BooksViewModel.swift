@@ -12,25 +12,22 @@ typealias BookPublisher = AnyPublisher<[Book], Error>
 typealias BookNeverPublisher = AnyPublisher<[Book], Never>
 
 class BooksViewModel {
-    private let bookManager: BooksManager!
+    private let bookManager = BooksManager.shared
     private var cancellables = Set<AnyCancellable>()
 
-    @Published private(set) var bookList: [Book] = .init()
+    @Published var bookList: [Book] = .init()
 
-    init(bookManager: BooksManager) {
-        self.bookManager = bookManager
+    init() {
         bindBookUpdates()
     }
 
     // MARK: - Methods
-
     func bindBookUpdates() {
-        bookManager.bookUpdates()
+        bookManager.allBookUpdates()
             .receive(on: DispatchQueue.main)
             .assign(to: \.bookList, on: self)
             .store(in: &cancellables)
     }
-
     func fetchBooks() {
         bookManager.fetchBooks()
             .receive(on: DispatchQueue.main)
@@ -44,11 +41,9 @@ class BooksViewModel {
                 self?.bookList = books
                 // Save to Core Data
                 self?.bookManager.saveToStorage(books)
-                print("🟢Success fetched books")
             }
             .store(in: &cancellables)
     }
-
     func updateFavorite(for uuid: Int) {
         bookManager.updateFavorite(uuid: uuid)
     }
