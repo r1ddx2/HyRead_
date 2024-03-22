@@ -10,7 +10,7 @@ import Combine
 
 class BooksViewController: UIViewController {
     
-    private var viewModel: BooksViewModel = BooksViewModel()
+    private var viewModel: BooksViewModel!
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Subviews
@@ -44,15 +44,18 @@ class BooksViewController: UIViewController {
         ])
     }
     private func bindViewModel() {
+        viewModel = BooksViewModel(bookManager: BooksManager())
+        
         viewModel.$bookList
             .receive(on: DispatchQueue.main)
             .sink { [weak self] books in
                 self?.updateUI()
             }
             .store(in: &cancellables)
-        
-        viewModel.fetchBooks()
+        //StorageManager.shared.deleteAllData()
+       viewModel.fetchBooks()
     }
+  
     // MARK: - Methods
     private func updateUI() {
         collectionView.reloadData()
@@ -69,15 +72,16 @@ extension BooksViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionViewCell.identifier, for: indexPath) as? BookCollectionViewCell else { return UICollectionViewCell() }
         
         cell.layoutCell(with: viewModel.bookList[indexPath.row])
+        // Subscribe to cell button
+        cell.buttonTappedPublisher
+            .sink { [weak self] uuid in
+                self?.viewModel.updateFavorite(for: uuid)
+            }
+            .store(in: &cell.cancellables)
         
         return cell
         
     }
-    
-}
-
-extension BooksViewController: UICollectionViewDelegate {
-    
     
 }
 
