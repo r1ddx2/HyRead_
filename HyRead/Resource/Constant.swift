@@ -9,4 +9,5 @@ import Foundation
 
 struct Constant {
     static let urlKey = "BookListURL"
+    static let keychainName = "KeychainName"
 }
