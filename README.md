@@ -1,34 +1,35 @@
 <div align="center">
 
-<p align="center">
-  <img src="Resource/InTouch_AppIcon.png" width="160"/>
-</p>
-
 # HyRead
 ![Static Badge](https://img.shields.io/badge/Swift-5.0-orange?logo=swift&style=for-the-badge) ![Static Badge](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge) ![Static Badge](https://img.shields.io/badge/iOS-16.0+-lightgrey?style=for-the-badge)
 
 HyRead, access your book collection both online and offline, while marking your favorite reads anytime, anywhere.
+
 </div>
 
 <br />
 
 <div align="center">
 
-**[INTRODUCTION]() • 
-[REQUIREMENTS]() •   
-[TECH IMPLEMENTATION]() • 
-[TECH STACK]() • 
-[AUTHOR]() • 
-[LICENSE]()**
+**[INTRODUCTION](https://github.com/r1ddx2/HyRead_/blob/main/README.md#-introduction) • 
+[REQUIREMENTS](https://github.com/r1ddx2/HyRead_/blob/main/README.md#%EF%B8%8F-requirements) •   
+[TECH IMPLEMENTATION](https://github.com/r1ddx2/HyRead_/blob/main/README.md#-tech-implementation) • 
+[TECH STACK](https://github.com/r1ddx2/HyRead_/blob/main/README.md#-tech-stack) • 
+[AUTHOR](https://github.com/r1ddx2/HyRead_/blob/main/README.md#-author) • 
+[LICENSE](https://github.com/r1ddx2/HyRead_/blob/main/README.md#-license)**
 
 </div>
 
 <br />
+
 ## 💡 Introduction
+
 - View user's book list online or offline
 - Mark books as your favorite and view in your collection
 
 <br />
+
+<div align="center">
 
 <table>
   <tr align="center">
@@ -40,6 +41,8 @@ HyRead, access your book collection both online and offline, while marking your 
     <td><img src="Resource/HyRead_Favorite.png" width="300"/></td>
   </tr>
  </table>
+
+</div>
 
 <br />
 
@@ -63,7 +66,7 @@ HyRead, access your book collection both online and offline, while marking your 
     <td>Encrypted Local Data</td>
   </tr>
   <tr>
-    <td><img src="Resource/HyRead_encrypt.png" width="300"/></td>
+    <td><img src="Resource/HyRead_encrypt.png" width="150"/></td>
   </tr>
  </table>
 
