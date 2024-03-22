@@ -40,8 +40,6 @@ extension BookEntity: Identifiable {
 
             return
         }
-        print("🟢Success to \(action.rawValue) data")
-
         uuid = uuid
         title = newTitle
         coverUrl = newCoverUrl

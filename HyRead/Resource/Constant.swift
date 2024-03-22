@@ -10,4 +10,5 @@ import Foundation
 enum Constant {
     static let urlKey = "BookListURL"
     static let keychainName = "KeychainName"
+    static let refreshIcon = "arrow.clockwise"
 }

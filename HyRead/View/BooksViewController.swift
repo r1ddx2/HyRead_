@@ -20,12 +20,21 @@ class BooksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpNavigationBar()
         setUpCollectionView()
         setUpLayouts()
         bindViewModel()
     }
-
+    private func setUpNavigationBar() {
+        let rightButton = UIBarButtonItem(
+            image: UIImage(systemName: Constant.refreshIcon),
+            style: .plain,
+            target: self,
+            action: #selector(rightButtonTapped)
+        )
+        rightButton.tintColor = .black
+        navigationItem.rightBarButtonItem = rightButton
+    }
     private func setUpCollectionView() {
         setUpCollectionViewLayout()
 
@@ -59,14 +68,16 @@ class BooksViewController: UIViewController {
                 self?.updateUI()
             }
             .store(in: &cancellables)
-        // StorageManager.shared.deleteAllData()
         viewModel.fetchBooks()
+        // StorageManager.shared.deleteAllData()
     }
 
     // MARK: - Methods
-
     private func updateUI() {
         collectionView.reloadData()
+    }
+    @objc private func rightButtonTapped() {
+        viewModel.fetchBooks()
     }
 }
 
