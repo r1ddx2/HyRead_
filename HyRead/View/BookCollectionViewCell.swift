@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 class BookCollectionViewCell: UICollectionViewCell {
     static let identifier = "\(BookCollectionViewCell.self)"
+    
     var book: Book?
+    var buttonTappedPublisher = PassthroughSubject<Int, Never>()
+    var cancellables = Set<AnyCancellable>()
     
     // MARK: - Subview
     private let coverImageView: UIImageView = {
@@ -80,14 +84,16 @@ class BookCollectionViewCell: UICollectionViewCell {
         self.book = book
         bookTitleLabel.text = book.title
         coverImageView.loadImage(book.coverUrl)
+        updateButtonUI()
     }
     @objc func favoriteButtonTapped() {
-
-        book?.isFavorite?.toggle()
-        updateButtonUI()
-        
-        // publish to view model Change data in storage
-        
+        if let book = book {
+            buttonTappedPublisher.send(book.uuid)
+            print(book.uuid)
+            self.book?.isFavorite?.toggle()
+            updateButtonUI()
+        }
+       
     }
     func updateButtonUI() {
         if book?.isFavorite == true {
