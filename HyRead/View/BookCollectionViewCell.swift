@@ -12,11 +12,13 @@ class BookCollectionViewCell: UICollectionViewCell {
     static let identifier = "\(BookCollectionViewCell.self)"
 
     var book: Book?
-    var buttonTappedPublisher = PassthroughSubject<Int, Never>()
+    private let buttonTappedPublisher = PassthroughSubject<Int, Never>()
+    var eventPublisher: AnyPublisher<Int, Never> {
+        return buttonTappedPublisher.eraseToAnyPublisher()
+    }
     var cancellables = Set<AnyCancellable>()
 
     // MARK: - Subview
-
     private let coverImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .black
@@ -25,7 +27,6 @@ class BookCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-
     private let bookTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -35,7 +36,6 @@ class BookCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
-
     private let favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(resource: .iconHeartEmpty), for: .normal)
@@ -43,17 +43,19 @@ class BookCollectionViewCell: UICollectionViewCell {
     }()
 
     // MARK: - View Load
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpLayouts()
         setUpActions()
     }
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // Avoid retain cycle
+        cancellables = Set<AnyCancellable>()
+    }
     private func setUpLayouts() {
         contentView.addSubview(coverImageView)
         contentView.addSubview(bookTitleLabel)
@@ -97,7 +99,6 @@ class BookCollectionViewCell: UICollectionViewCell {
     @objc func favoriteButtonTapped() {
         if let book = book {
             buttonTappedPublisher.send(book.uuid)
-            print(book.uuid)
             self.book?.isFavorite?.toggle()
             updateButtonUI()
         }
