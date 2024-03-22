@@ -11,4 +11,6 @@ enum Constant {
     static let urlKey = "BookListURL"
     static let keychainName = "KeychainName"
     static let refreshIcon = "arrow.clockwise"
+    static let favoriteIcon = "heart"
+    static let myFavTitle = "我的最愛"
 }
