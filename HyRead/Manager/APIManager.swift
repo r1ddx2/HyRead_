@@ -29,7 +29,6 @@ extension NetworkError: LocalizedError {
 }
 
 // MARK: - APIManager
-typealias BookPublisher = AnyPublisher<[Book], Error>
 
 class APIManager {
     
