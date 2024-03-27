@@ -34,16 +34,16 @@ extension NetworkError: LocalizedError {
 class APIManager {
     static let shared = APIManager()
     private init() {}
-
+    
     private let urlString = Bundle.valueForString(key: Constant.urlKey)
     private var cancellables = Set<AnyCancellable>()
-
+    
     func fetchData() -> BookPublisher {
         guard let url = URL(string: urlString) else {
             return Fail(error: NetworkError.invalidURL)
                 .eraseToAnyPublisher()
         }
-
+        
         // publisher for URLSession data task, returns (data, URLResponse)
         return URLSession.shared.dataTaskPublisher(for: url)
             .tryMap { data, response -> Data in // Check HTTPResponse status code
@@ -63,9 +63,12 @@ class APIManager {
                 }
             }
             .mapError { error -> Error in
-                if let decodingError = error as? DecodingError {
-                    return decodingError
-                } else {
+                switch error {
+                case is DecodingError:
+                    return error
+                case NetworkError.responseError:
+                    return NetworkError.responseError // thrown by tryMap
+                default:
                     return NetworkError.unknown
                 }
             }
