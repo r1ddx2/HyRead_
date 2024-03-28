@@ -33,13 +33,13 @@ class BooksViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] result in
                 if case let .failure(error) = result {
-                    // Load Core Data
+                    // Network connection fail so load Core Data
                     self?.bookManager.loadBooks()
                     print("🔴Failed to fetch books: \(error.localizedDescription)")
                 }
             } receiveValue: { [weak self] books in
                 self?.bookList = books
-                // Save to Core Data
+                // Fetched and Save to Core Data
                 self?.bookManager.saveToStorage(books)
             }
             .store(in: &cancellables)

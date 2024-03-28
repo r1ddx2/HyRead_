@@ -111,7 +111,6 @@ extension BooksViewController: UICollectionViewDataSource, UICollectionViewDeleg
             .store(in: &cell.cancellables)
             // store in vc cancellables will cause memory leak
 
-
         return cell
     }
 }
